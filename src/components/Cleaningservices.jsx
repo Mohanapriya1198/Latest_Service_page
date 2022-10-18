@@ -1,9 +1,12 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 import "./Cleaningservices.css";
 import { Link } from "react-router-dom";
 import home from "../Images/home img.jpg";
+import home2 from "../Images/home2.jpg";
 const Cleaningservices = () => {
+  const [showLinks, setShowLinks] = useState(false);
+
   return (
     <div className="services">
       <div className="content">
@@ -13,22 +16,34 @@ const Cleaningservices = () => {
             <div className="container">
               <div className="logo">
                 <a href="#">
-                  al bahar al bayan<span>Building Cleaning Services</span>
+                  al bahar al bayan<span> Cleaning Services</span>
                 </a>
               </div>
-              {/* <button type="button" className="nav-toggle js-nav-toggler">
-                <span></span>
-              </button> */}
+
               <nav className="nav js-nav">
-                <ul className="list">
-                  <li><Link to="/">Home</Link></li>
-                  <li>
-                    <Link to="/about">About</Link>
-                  </li>
-                  <li><Link to="/services">Services</Link></li>
-                  <li> <Link to="/pricing">Pricing</Link></li>
-                  <li><Link to="/contact">Contact</Link></li>
-                </ul>
+                <div className="rightSide">
+                  <ul className="list" id={showLinks ? "hidden" : ""}>
+                    <li>
+                      <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                      <Link to="/services">Services</Link>
+                    </li>
+                    <li>
+                      {" "}
+                      <Link to="/pricing">Pricing</Link>
+                    </li>
+                    <li>
+                      <Link to="/contact">Contact</Link>
+                    </li>
+                  </ul>
+                  <button onClick={() => setShowLinks(!showLinks)}>
+                    <GiHamburgerMenu />
+                  </button>
+                </div>
               </nav>
             </div>
           </header>
@@ -40,7 +55,13 @@ const Cleaningservices = () => {
               <div className="grid">
                 <div className="home-text">
                   <h1>need cleaning services</h1>
-                  <p>wbhjwshowijwojjwsiojqwio</p>
+
+                  <p>
+                    Cleaning is the process of removing unwanted substances,
+                    such as dirt, infectious agents, and other impurities, from
+                    an object or environment. Cleaning occurs in many different
+                    contexts and uses many different methods.
+                  </p>
                   <div className="btn-wrap">
                     <a href="#about" className="btn">
                       know more
@@ -48,42 +69,15 @@ const Cleaningservices = () => {
                   </div>
                 </div>
                 <div className="home-img">
+                  <div className="home2">
+                    <img src={home2} alt="img" />
+                  </div>
                   <img src={home} alt="img" />
                 </div>
               </div>
             </div>
           </section>
           {/*home section end*/}
-          {/* about section start */}
-          {/* <section className="about section-padding" id="about">
-            <div className="container">
-              <div className="grid">
-                <div className="about-img">
-                  <div className="img-box">
-                    <img src={about} alt="img" />
-                    <div className="box box-1">
-                      <span>2k</span>
-                      <p>satisfied clients</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="about-text">
-                  <div className="section-title">
-                    <span className="title">about us</span>
-                    <h2 className="sub-title">we're cleaning services</h2>
-                  </div>
-                  <p>vhdgwhvdwhguwgyuegdyrgfyugryggrgr</p>
-                </div>
-              </div>
-            </div>
-          </section> */}
-          {/* about section end */}
-          
-          {/*footer start 
-          <footer className="footer">
-            
-          </footer>
-  footer end */}
         </div>
       </div>
     </div>
